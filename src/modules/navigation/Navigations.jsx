@@ -6,6 +6,7 @@ import FavoritesStack from './stack/FavoritesStack';
 import HomeStack from './stack/HomeStack';
 import {Icon} from '@rneui/base';
 import VideosStack from './stack/VideosStack';
+import PushNotification from '../notifications/PushNotification';
 
 
 const Tab = createBottomTabNavigator();
@@ -45,6 +46,11 @@ export default function Navigations(){
                 component={AuthStack}
                 options={{title: 'Cuenta'}}
                 />
+                <Tab.Screen 
+                name='Notification' 
+                component={PushNotification}
+                options={{title: 'Notificaciones'}}
+                />
             </Tab.Navigator>
         </NavigationContainer>
     )
@@ -67,6 +73,9 @@ const getIconName = (routeName, focused) => {
         break;
         case 'AuthStack':
         iconName = focused ? 'account' : 'account-outline';
+        break;
+        case 'Notification':
+        iconName = focused ? 'pen' : 'pencil-outline';
         break;
     }
   
